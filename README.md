@@ -38,15 +38,15 @@
 把下面这句话发给你的 Agent。
 
 ```bash
-帮我安装这个skill：https://github.com/KKKKhazix/human-writing
+帮我从 https://github.com/jiyunmengma-lab/mammoth-writing 的 dev-writing 分支安装 human-writing 目录中的 Skill，不要使用默认分支。
 ```
 
-Agent 会读取仓库、找到 `human-writing`，完成安装。装好之后显示名为「活人感写作」。
+Agent 应获取 `dev-writing` 分支，并将其中的 `human-writing` 文件夹完整安装到 Skills 目录。装好之后显示名为「活人感写作」。
 
 <details>
 <summary><strong>Agent 不支持直接安装时</strong></summary>
 
-从 [Releases](https://github.com/KKKKhazix/human-writing/releases/latest) 下载，或者把仓库里的 [`human-writing`](./human-writing) 文件夹完整复制到本机 Skills 目录。文件夹名保留 `human-writing`。
+下载 [dev-writing 分支](https://github.com/jiyunmengma-lab/mammoth-writing/archive/refs/heads/dev-writing.zip)并解压，将其中的 `human-writing` 文件夹完整复制到本机 Skills 目录。也可以先克隆该分支再复制。文件夹名保留 `human-writing`。
 
 ```text
 ~/.agents/skills/human-writing/
