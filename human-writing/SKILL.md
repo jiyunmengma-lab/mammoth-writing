@@ -16,7 +16,7 @@ description: Use when collaborating with 猛犸 on Chinese writing, especially s
 - 小说、故事、剧本等虚构创作，读取 `references/fiction.md`；混合作品按需要同时读取现实题材参考。
 - 回答、长帖、博客、评论和叙事散文，可按需要读取 `references/forum-prose.md`。
 - 审稿、改稿与统稿，读取 `references/revision.md`。
-- 在创作目录工作、建立或找回稿件、交接任务、积累合作经验，读取 `references/workspace.md`，并先读该创作目录已有的 `AGENTS.md`。只加载本次任务需要的材料。
+- 在创作目录工作、建立或找回稿件、交接任务、积累合作经验，读取 `references/workspace.md`，先按其中的本机地址簿规则定位并验证目录，再读该目录已有的 `AGENTS.md`。只加载本次任务需要的材料。
 
 ## 独立创作与合作
 
@@ -42,6 +42,6 @@ description: Use when collaborating with 猛犸 on Chinese writing, especially s
 
 修改后回看相关上下文；局部调整影响前后铺垫、事实、观点或结尾时同步统稿，不只交付孤立的漂亮段落。事实稿保留可核验的关键来源，正文与研究注释可以分开，避免把来源说明混入口播。
 
-首次没有创作目录时，按 workspace 参考主动引导用户决定父目录和目录名称，展示完整路径并取得创建授权后才建立；已有目录则确认使用。系列作品区分共享资料与各期稿件、资料。
+没有当次明确目录时，先按 workspace 参考读取 `~/.config/mammoth-writing/workspaces.json`，验证后接手；地址簿不是权限授权。首次没有创作目录时，按 workspace 参考主动引导用户决定父目录和目录名称，展示完整路径并取得创建授权后才建立；已有目录则确认使用。系列作品区分共享资料与各期稿件、资料。
 
 在有文件权限的创作目录中，把可继续使用的成果保存到真实文件，维护当前稿与交接入口，交付可点击的文档链接。没有相应工具时交付完整文本并说明未保存，不能声称已创建文件。作品决定和有用经验按 workspace 参考记录；不把每次反馈自动升级为跨作品的审美规则。

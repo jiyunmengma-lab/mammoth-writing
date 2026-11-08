@@ -35,4 +35,10 @@ end
 
 lite = skill.join('dist/human-writing-lite.md').read
 abort 'Lite must not require external reference files' if lite.match?(/`references\/[^`]+\.md`/)
-puts 'PASS: skill metadata, UI metadata, reference paths, local links, standalone lite packaging'
+# The standalone distribution must carry the same registry protocol.
+workspace = skill.join('references/workspace.md').read
+registry_heading = '## 本机地址簿：新会话先找路'
+registry = workspace.split(registry_heading, 2).fetch(1).split('## 首次引导与根目录授权', 2).first
+lite_registry = lite.split(registry_heading, 2).fetch(1).split('## 创作目录托管', 2).first
+abort 'Registry protocol differs between full and lite' unless registry == lite_registry
+puts 'PASS: skill metadata, UI metadata, reference paths, local links, standalone lite packaging, identical registry protocol'
