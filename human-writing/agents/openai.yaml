@@ -1,4 +1,4 @@
 interface:
-  display_name: "活人感写作"
-  short_description: "写出有活人感、有中文韵律的现实文章、故事与其他作品"
-  default_prompt: "使用 $human-writing，把我的材料写成一篇有活人感和中文韵律的作品，现实部分站得住，虚构部分前后成立。"
+  display_name: "猛犸写作"
+  short_description: "独立研究、构思与统稿，协作完成中文视频文案并托管创作文档"
+  default_prompt: "使用 $human-writing，按当前作品的目标和材料独立推进构思、写作与统稿，并维护我的创作文档。"

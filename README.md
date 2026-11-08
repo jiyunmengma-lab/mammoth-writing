@@ -1,116 +1,83 @@
-<p align="center">
-  <img src="./assets/readme-cover.svg" alt="活人感写作" width="100%">
-</p>
+# 猛犸写作
 
-<p align="center">
-  <a href="https://github.com/KKKKhazix/human-writing/releases/tag/v1.1.0"><img alt="Version 1.1.0" src="https://img.shields.io/badge/version-1.1.0-C4473A?style=flat-square"></a>
-  <a href="./LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-313131?style=flat-square"></a>
-  <a href="https://github.com/KKKKhazix/human-writing/releases/latest"><img alt="GitHub Release" src="https://img.shields.io/github/v/release/KKKKhazix/human-writing?style=flat-square&color=6B6258"></a>
-</p>
+在开源「活人感写作」基础上发展的中文写作 skill，当前开发在 `dev-writing`。V1.0 的目标是让 Agent 独立研究、构思、写作和统稿，与猛犸形成合作默契，而不是模仿他的文风。
 
-<p align="center">
-  <a href="#快速安装">快速安装</a> ·
-  <a href="#它做什么">写作流程</a> ·
-  <a href="#仓库结构">仓库结构</a> ·
-  <a href="https://github.com/KKKKhazix/human-writing/issues">提交问题</a>
-</p>
+主要先用于自媒体视频文案，保留其他现实与虚构文体的写作基础。猛犸负责创作判断，可以随时讨论或自己写；Agent 也维护稿件、来源与交接记录，让他不必管理目录。
 
-> AI 写中文有个通病：读完觉得挺流畅，但说不出是谁写的。活人感写作想治的就是这件事。
+**当前是 V1.0 候选规则，尚未经过猛犸的完整真实创作验证，也未发布新版本。**
 
-让模型写出来的文章读起来像一个具体的人在说话——知道一些事，有判断，偶尔岔开一句，还能接回来。适用于知乎回答、公众号文章、博客、论坛帖、人物故事、科普、评测、小说、口播等大多数中文写作场景。
+## 不安装也能用
 
-## 它做什么
+有本地文件能力的 Agent 可以直接读取这个仓库中的 `human-writing/SKILL.md`，按任务读取参考文件，无需先安装。告诉它本机实际的仓库路径和独立创作目录即可：
 
-写作之前先解决一个前置问题：你手上有没有东西可写。
+> 请读取这个仓库的 human-writing/SKILL.md，按其中的规则协助我写作。我的创作目录是【实际路径】，请维护那里的稿件与接手说明。
 
-现实题材，材料不够就去查，查不到就追问或者缩短篇幅，绝不拿车轱辘话凑字数。虚构题材可以自由创造人物和情节，但每个场景仍然要有目标、有动作、有变化。
-
-材料过关之后管三件事：
-
-| 材料 | 推进 | 中文 |
-| :--- | :--- | :--- |
-| 现实写作核准事实、数字、引语和亲历。虚构写作检查人物、行动与因果。 | 每段都要带来新东西——新事实、新动作、新例子或新后果。写过的不重复。 | 白话打底，在意词序和停顿，清掉报告腔、模型腔和翻案句。 |
-
-初稿写完还有一道关。Skill 会逐段检查有没有在原地转圈，砍掉重复解释，调整长短句节奏，拦住冒号滥用、破折号、「不是……而是……」之类的翻案腔和常见 AI 黑话。检查脚本只管已经写明的硬规则，不替你决定风格。
+也可以直接把 [直接使用版](./human-writing/dist/human-writing-lite.md) 的内容和写作需求一起发给 Agent。它是自包含的，不依赖其他参考文件；没有文件工具的聊天产品可以按它创作，但不能真正托管本地文件。
 
 ## 快速安装
 
-把下面这句话发给你的 Agent。
+希望使用标准 skill 调用时，可把这句话交给 Agent：
 
-```bash
-帮我安装这个skill：https://github.com/KKKKhazix/human-writing
-```
+> 帮我从 https://github.com/jiyunmengma-lab/mammoth-writing 的 dev-writing 分支安装 human-writing 目录中的 Skill，不要使用默认分支。
 
-Agent 会读取仓库、找到 `human-writing`，完成安装。装好之后显示名为「活人感写作」。
+完整复制 `human-writing` 文件夹到客户端支持的 Skills 目录，例如 `~/.agents/skills/human-writing/`。也可下载 [dev-writing 分支](https://github.com/jiyunmengma-lab/mammoth-writing/archive/refs/heads/dev-writing.zip) 后复制。安装后的显示名为「猛犸写作」，调用名仍是 `$human-writing`。
 
-<details>
-<summary><strong>Agent 不支持直接安装时</strong></summary>
+本地未推送的修改不在 GitHub 下载中；测试本轮工作树版本时直接读取本地目录，或从本地复制安装。
 
-从 [Releases](https://github.com/KKKKhazix/human-writing/releases/latest) 下载，或者把仓库里的 [`human-writing`](./human-writing) 文件夹完整复制到本机 Skills 目录。文件夹名保留 `human-writing`。
+## 使用方式
 
-```text
-~/.agents/skills/human-writing/
-```
+- “这个题目给普通观众讲，你自己找角度，先写一版完整稿。”
+- “这段太平了，先讨论哪里出了问题，不用重写全文。”
+- “当前稿给我看看。”
+- “给我一个空白文档，我自己写一下结尾。”
 
-</details>
+创作目录与 skill 源码目录分开。Agent 会维护其中的 `AGENTS.md`、当前稿入口与必要的来源和决定，让其他 Agent 能接着做。目录按需要增长，不要求使用者理解结构，也不要求建立 Git、数据库或专用工作台。
 
-装好之后这样用：
+首次没有创作目录时，Agent 会引导你选**放在哪里、目录叫什么**，给出完整路径，得到你同意后再创建。已有目录则确认使用它。你只需知道这个根目录在哪，内部整理仍由 Agent 负责。
 
-```text
-使用 $human-writing，把我的材料写成一篇有活人感和中文韵律的作品。
-```
+### 换会话怎么找到创作目录
 
-## 1.1.0 改了什么
+首次确认目录后，Agent 会将名称与绝对路径登记在本机私有地址簿 `~/.config/mammoth-writing/workspaces.json`，不放进这个代码仓库。新会话需要加载本 skill 或直接使用版，才能按这个约定读取地址簿、验证目录，再读其中的 AGENTS.md 接手；当次明确指定的位置优先，多处目录无法确定时会请你选择。
 
-1.0 用字符串禁令拦 AI 味——禁「不是……而是……」、禁冒号、禁一批黑话。有效，但模型会换一套字面继续做同样的事。「你以为……其实……」「回头才发现」和「不是A而是B」是同一个姿势，读者认的是姿势，不是字。
+地址簿只负责找路，不授予权限。读写受阻时通过客户端申请必要权限，无法申请或未获批准则说明限制；目录搬走、磁盘未挂载或记录损坏时先核实，不偷偷重建。它不会自动跨电脑同步，其他 Agent 也需要文件能力和权限。
 
-1.1 把防线从字面挪到动作：禁的是「先给读者立一个他没有的误解，再推翻它」这件事本身，不管穿什么外衣。检测脚本也跟着升级，补了变形翻案句、AI 排比、抒情借喻的警告层，加了句长变异系数和连词密度的统计检查，同时把「不丢人」「打法」这类正常中文从误伤名单里捞出来。另外出了一个两千字的蒸馏版，ChatGPT、千问这类聊天窗口直接粘贴就能用。
+### 分期系列怎么放
 
-完整变更见 [CHANGELOG.md](./CHANGELOG.md)。
-
-## 仓库结构
-
-<details>
-<summary><strong>展开查看完整目录</strong></summary>
+下面是将来**创作目录**的示例，不是这个 skill 的源码目录。比如“说文解字”每期一个字：
 
 ```text
-human-writing/
-├── SKILL.md
-├── VERSION
-├── LICENSE
-├── agents/
-│   └── openai.yaml
-├── dist/
-│   └── human-writing-lite.md
-├── references/
-│   ├── forum-prose.md
-│   ├── reality.md
-│   ├── fiction.md
-│   ├── formats.md
-│   └── revision.md
-└── scripts/
-    └── check_prose.py
+你选定的创作目录/
+├── AGENTS.md           接手说明和各期入口
+└── 说文解字/
+    ├── 共享资料/      整个系列共用的来源和设定
+    └── 各期/
+        ├── 我/        这一期的稿件、资料和修改记录
+        └── 贞/        另一期开自己的目录
 ```
 
-| 位置 | 干什么的 |
-| :--- | :--- |
-| [`SKILL.md`](./human-writing/SKILL.md) | 入口。材料门槛、现实与虚构分流、写作流程、交付禁令，全在这一份里 |
-| [`forum-prose.md`](./human-writing/references/forum-prose.md) | 知乎、公众号、论坛长帖的写法，节奏和措辞的具体做法都在这里 |
-| [`reality.md`](./human-writing/references/reality.md) | 真人、历史、新闻、数据和个人经历的事实边界 |
-| [`fiction.md`](./human-writing/references/fiction.md) | 小说、故事、虚构散文和对白的创作规则 |
-| [`formats.md`](./human-writing/references/formats.md) | 短内容、口播、演讲、教程、评测等特殊形式 |
-| [`revision.md`](./human-writing/references/revision.md) | 初稿写完之后怎么改——逐遍检查清单 |
-| [`check_prose.py`](./human-writing/scripts/check_prose.py) | 检查成稿有没有踩到硬禁令 |
-| [`human-writing-lite.md`](./human-writing/dist/human-writing-lite.md) | 蒸馏版，两千字以内，聊天窗口直接粘贴用 |
+目录随选题逐步建立，不预定多少期，也不要求先排好顺序。共用资料留一份，各期引用；每期自己的材料和当前稿各归其位。已有合理目录则沿用。
 
-</details>
+文档链接由运行 Agent 的客户端提供；须实际确认猛犸能打开、编辑并保存到同一个文件。仅通过链接检查不等于完成这项使用验证。
 
-## 反馈
+## 规则在哪里
 
-MIT 协议开源。仓库只有原创规则和工具，没有第三方文章、训练语料或模型权重。
+| 文件 | 用途 |
+| --- | --- |
+| [SKILL.md](./human-writing/SKILL.md) | 创作责任、合作、事实边界及按需导航 |
+| [formats.md](./human-writing/references/formats.md) | 视频文案、口播及其他形式 |
+| [workspace.md](./human-writing/references/workspace.md) | 创作仓库托管、交接和轻量经验 |
+| [revision.md](./human-writing/references/revision.md) | 改稿、审稿和全文一致性 |
+| [reality.md](./human-writing/references/reality.md) | 现实题材、引用与来源 |
+| [fiction.md](./human-writing/references/fiction.md) | 虚构及混合作品 |
+| [forum-prose.md](./human-writing/references/forum-prose.md) | 回答、长帖与叙事散文 |
+| [human-writing-lite.md](./human-writing/dist/human-writing-lite.md) | 不安装时使用的自包含版本 |
 
-碰到规则冲突、误报或者某个模型上表现不对，欢迎[提 Issue](https://github.com/KKKKhazix/human-writing/issues)。附上你的提示词、模型输出片段和你觉得应该是什么样，排查起来快很多。
+## 验证与版本
 
-<p align="center">
-  <sub>活人感写作 · Human Writing · 1.1.0</sub>
-</p>
+运行 `ruby tests/check_package.rb` 检查元数据、引用文件、文档链接与直接使用版的包装完整性。行为场景与尚未完成的真实使用检查见 [验证记录](./docs/VALIDATION.md)。这些检查不证明文学质量或长期独立性。
+
+`human-writing/VERSION` 仍保存上游 `1.1.0` 版本信息；本轮候选规则以 `dev-writing` 工作树为准。历史发布记录保留在 [CHANGELOG.md](./CHANGELOG.md)，本轮没有创建 release。
+
+## 来源与许可
+
+基于 [KKKKhazix/human-writing](https://github.com/KKKKhazix/human-writing)，遵循 [MIT License](./LICENSE)。保留上游许可证和历史记录。本仓库保存规则，不包含猛犸的私人创作档案或模型权重。
