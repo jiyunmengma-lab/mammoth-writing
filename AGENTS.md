@@ -9,8 +9,8 @@
 ## 目录与验证
 
 - `human-writing/` 是可安装的 Skill；`references/` 保存按任务读取的规则，`agents/` 保存界面元数据，`VERSION` 保存版本。
-- `human-writing/dist/human-writing-lite.md` 是已跟踪的交付文件，不是可随意清理的临时构建产物。`assets/` 保存 README 使用的资源。
-- 当前没有独立测试目录或已声明的构建、测试、lint 流程。新增测试源码和必要夹具应纳入版本控制，并与运行时生成物分开；临时测试或预览产物应集中放在项目专属目录，不要散放仓库根目录。
+- `human-writing/dist/human-writing-lite.md` 是已跟踪的交付文件，不是可随意清理的临时构建产物。`assets/` 保留上游图示资源。
+- 包装检查运行 `ruby tests/check_package.rb`；有限行为场景及验证边界见 `docs/VALIDATION.md`。新增测试源码和必要夹具应纳入版本控制，并与运行时生成物分开；临时测试或预览产物应集中放在项目专属临时目录，不要散放仓库根目录。
 - 改动 Skill 时核对入口、按需读取的参考文件、精简版和 README 的一致性，并按任务验证事实边界、引用与文体要求。
 
 ## 协作与文档维护
